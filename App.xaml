@@ -1,0 +1,30 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Diario_bienestar"
+             x:Class="Diario_bienestar.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--Tabbar-->
+            <Style TargetType="local:AppShell">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource RosaPalo}"/>
+                <Setter Property="Shell.TitleColor" Value="{StaticResource Azul}"/>
+            </Style>
+
+            <!--Label general-->
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource Azul}"/>
+                <Setter Property="FontFamily" Value="dyslexic"/>
+            </Style>
+
+            <Style TargetType="Border">
+                <Setter Property="Stroke" Value="{StaticResource Marron}"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

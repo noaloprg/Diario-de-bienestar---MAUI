@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Diario_bienestar.MainPage"
+             BackgroundColor="{StaticResource CremaSuave}">
+    <VerticalStackLayout
+        Margin="50,50,50,50">
+        <Border>
+            <VerticalStackLayout
+                Spacing="20"
+                Padding="30">
+                <Label Text="BIENVENIDO PETER"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       FontSize="40"/>
+                <Label Text="Bienvenido a tu diario de bienestar"
+                       HorizontalTextAlignment="Center"
+                        FontSize="30"
+                       />
+                <Label Text="Registra como te sientes y tus actividades diarias para mejorar tu bienestar"
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Italic"
+                        FontSize="20"/>
+            </VerticalStackLayout>
+        </Border>
+
+        <Image Source="diario.png"
+               WidthRequest="600"
+               HeightRequest="500"/>
+
+    </VerticalStackLayout>
+</ContentPage>

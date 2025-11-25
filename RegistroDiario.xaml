@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Diario_bienestar.RegistroDiario"
+             Title="RegistroDiario"
+             BackgroundColor="{StaticResource CremaSuave}">
+    <VerticalStackLayout
+        Margin="100,100,100,100"
+        Spacing="100">
+
+        <Slider x:Name="slSlider" Maximum="100" Minimum="20"
+                MaximumTrackColor="GreenYellow"
+                MinimumTrackColor="Red"/>
+
+        <ProgressBar Progress="0.2" ProgressColor="{StaticResource Azul}"
+                     BackgroundColor="black"/>
+        <Label x:Name="lblValor"/>
+
+    </VerticalStackLayout>
+</ContentPage>
