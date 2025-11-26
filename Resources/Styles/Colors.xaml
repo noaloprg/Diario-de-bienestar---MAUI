@@ -47,5 +47,6 @@
     <Color x:Key="RosaPalo">#f7d6d4</Color>
     <Color x:Key="Azul">#1EA1A9</Color>
     <Color x:Key="Marron">#624c1d</Color>
+    <Color x:Key="Morado">#aeaaeb</Color>
     
 </ResourceDictionary>

@@ -1,0 +1,15 @@
+[
+  {
+    "fecha": "2025-11-27T00:00:00",
+    "sentimientos": null,
+    "nivelActividadFidisca": 0,
+    "nivelEnergia": 1
+  }
+][
+  {
+    "fecha": "2025-11-27T00:00:00",
+    "sentimientos": "Bien",
+    "nivelActividadFidisca": 0.376,
+    "nivelEnergia": 5
+  }
+]

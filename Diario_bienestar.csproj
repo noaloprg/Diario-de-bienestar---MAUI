@@ -68,6 +68,13 @@
 	  <MauiXaml Update="RegistroDiario.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="ResumenSemanal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Ficheros\" />
 	</ItemGroup>
 
 </Project>

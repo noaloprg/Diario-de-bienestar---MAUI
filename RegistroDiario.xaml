@@ -5,16 +5,57 @@
              Title="RegistroDiario"
              BackgroundColor="{StaticResource CremaSuave}">
     <VerticalStackLayout
-        Margin="100,100,100,100"
-        Spacing="100">
+        Margin="50,50,50,50"
+        Spacing="30"
+         WidthRequest="1280">
+        <!--fecha-->
+        <Label Text="Fecha"/>
+        <DatePicker x:Name="dpFecha"
+                    Format="dd/MM/yyyy"/>
 
-        <Slider x:Name="slSlider" Maximum="100" Minimum="20"
-                MaximumTrackColor="GreenYellow"
-                MinimumTrackColor="Red"/>
+        <!--estado de ánimo-->
+        <Label Text="¿Como te sientes hoy?"/>
+        <Editor x:Name="edPensamientos" 
+                Placeholder="Escribe tus pensamientos..."
+                HeightRequest="130"/>
 
-        <ProgressBar Progress="0.2" ProgressColor="{StaticResource Azul}"
-                     BackgroundColor="black"/>
-        <Label x:Name="lblValor"/>
+        <!--ejercicio diario-->
+        <Label Text="Nivel de actividad física"/>
+        <Slider x:Name="slActividad"
+                Minimum="0" Margin="1"/>
+        <Label Text="0 1 2 3 4 5 6 7 8 9 10"
+               CharacterSpacing="30"
+               />
+        <ProgressBar x:Name="pbActividadFisica"/>
+
+        <!--nivel de energía-->
+        <HorizontalStackLayout
+            Spacing="40">
+            <Label Text="Nivel de energía"/>
+            <Stepper x:Name="stNivelEnergia"
+                     Maximum="5" Minimum="1"
+                     Increment="1"/>
+
+            <Border StrokeShape="RoundRectangle 30" Stroke="{StaticResource CremaSuave}"
+                    BackgroundColor="{StaticResource Morado}"
+                    WidthRequest="100">
+                <Label x:Name="lblNivelEnergia" Text="1"
+                   TextColor="{StaticResource Marron}"
+                   VerticalOptions="Center" HorizontalOptions="Center"/>
+            </Border>
+
+        </HorizontalStackLayout>
+
+        <!--boton guardar-->
+        <Border
+            WidthRequest="179" StrokeShape="RoundRectangle 30"
+             HorizontalOptions="End"
+            BackgroundColor="{StaticResource RosaPalo}" Stroke="{StaticResource RosaPalo}"
+            >
+            <Button x:Name="btnGuardar" Text="Guardar registro" Clicked="OnGuardarRegistroClick"
+                HorizontalOptions="Center" VerticalOptions="Center"
+               />
+        </Border>
 
     </VerticalStackLayout>
 </ContentPage>

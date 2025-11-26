@@ -20,10 +20,56 @@
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="{StaticResource Azul}"/>
                 <Setter Property="FontFamily" Value="dyslexic"/>
+                <Setter Property="FontSize" Value="25"/>
             </Style>
 
+            <!--Border-->
             <Style TargetType="Border">
                 <Setter Property="Stroke" Value="{StaticResource Marron}"/>
+            </Style>
+            
+            <!--DatePicker-->
+            <Style TargetType="DatePicker">
+                <Setter Property="BackgroundColor" Value="{StaticResource Morado}"/>
+                <Setter Property="WidthRequest" Value="160"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="TextColor" Value="{StaticResource Marron}"/>
+                <Setter Property="FontFamily" Value="dyslexic"/>
+            </Style>
+            
+            <!--Slider-->
+            <Style TargetType="Slider">
+                <Setter Property="MaximumTrackColor" Value="{StaticResource Morado}"/>
+                <Setter Property="MinimumTrackColor" Value="{StaticResource Marron}"/>
+                </Style> 
+            
+            <!--Stepper-->
+            <Style TargetType="Stepper">
+                <Setter Property="BackgroundColor" Value="{StaticResource Azul}"/>
+            </Style>
+            
+            <!--Editor-->
+            <Style TargetType="Editor">
+                <Setter Property="TextColor" Value="{StaticResource Marron}"/>
+                <Setter Property="PlaceholderColor" Value="{StaticResource Marron}"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource CremaSuave}"/>
+                <Setter Property="FontFamily" Value="dyslexic"/>
+                <Setter Property="FontSize" Value="18"/>
+            </Style>
+            
+            <!--ProgressBar-->
+            <Style TargetType="ProgressBar">
+                <Setter Property="ProgressColor" Value="{StaticResource Marron}"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource Azul}"/>
+            </Style>
+            
+            <!--Button-->
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="{StaticResource Azul}"/>
+                <Setter Property="FontFamily" Value="dyslexic"/>
+                <Setter Property="FontSize" Value="18"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

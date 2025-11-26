@@ -9,7 +9,7 @@
             <VerticalStackLayout
                 Spacing="20"
                 Padding="30">
-                <Label Text="BIENVENIDO PETER"
+                <Label x:Name="lblBienvenida" Text="BIENVENID@"
                        FontAttributes="Bold"
                        HorizontalTextAlignment="Center"
                        FontSize="40"/>
