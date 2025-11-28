@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diario_bienestar.Servicios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,15 @@ using System.Threading.Tasks;
 
 namespace Diario_bienestar.Respositories
 {
-    class RegistroRepository : IRepository<Registro>
+    public class RegistroRepository
     {
         private static List<Registro> listaRegistros = new List<Registro>();
 
+        public RegistroRepository()
+        {
+            //que obtenga todos los valores del fichero al cargar el repositorio
+            AddAll(JsonRegistrosService.Deserializar());
+        }
         public bool Add(Registro reg)
         {
             bool esCorrecto;
@@ -31,6 +37,16 @@ namespace Diario_bienestar.Respositories
         public IEnumerable<Registro> GetAll()
         {
             return listaRegistros;
+        }
+
+        public bool AddAll(IList<Registro> listaPasada)
+        {
+            if (listaPasada.Count > 0)
+            {
+                listaRegistros = listaPasada.ToList();
+                return true;
+            }
+            else return false;
         }
 
         public Registro GetById(int id)

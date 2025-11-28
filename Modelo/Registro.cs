@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Diario_bienestar.Respositories
 {
-    class Registro
+    public class Registro
     {
-        public DateTime fecha {  get; set; }
+        public DateTime fecha { get; set; }
         public string sentimientos { get; set; }
         public double nivelActividadFidisca { get; set; }
         public int nivelEnergia { get; set; }
@@ -26,7 +26,7 @@ namespace Diario_bienestar.Respositories
         public override bool Equals(object? obj)
         {
             return obj is Registro registro &&
-                   fecha == registro.fecha;                   
+                   fecha == registro.fecha;
         }
 
         public override int GetHashCode()

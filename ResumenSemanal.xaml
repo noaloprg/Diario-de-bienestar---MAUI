@@ -2,11 +2,40 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Diario_bienestar.ResumenSemanal"
-             Title="ResumenSemanal">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Resumen Semanal"
+             BackgroundColor="{StaticResource CremaSuave}">
+
+    <Border
+        Margin="100,100,100,100"
+        StrokeShape="RoundRectangle 200"
+        BackgroundColor="{StaticResource RosaPalo}"
+        Stroke="{StaticResource Morado}"
+        >
+
+        <VerticalStackLayout
+            Spacing="80">
+
+            <!--definir rango de semana-->
+                <Label x:Name="lblRangoSemanal" Text="10/03/2025 - 17/03/2025"
+                       Margin="400,55,0,0"
+                       Style="{StaticResource labelResumen}"/>
+
+                <HorizontalStackLayout>
+                <Label Text="Promedio actividad física: " Style="{StaticResource labelResumen}"/>
+                <Label x:Name="lblActividadPromedio" Text="6.4"
+                       Style="{StaticResource labelResumenContenido}"/>
+            </HorizontalStackLayout>
+
+            <ProgressBar x:Name="pbActividadFisica"
+                         ProgressColor="{StaticResource Verde}" BackgroundColor="{StaticResource Marron}"
+                         
+                         WidthRequest="1030"/>
+
+            <HorizontalStackLayout>
+                <Label Text="Promedio energía: " Style="{StaticResource labelResumen}"/>
+                <Label x:Name="lblEnergiaPromedio" Text="6.4"
+                       Style="{StaticResource labelResumenContenido}"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Border>
 </ContentPage>

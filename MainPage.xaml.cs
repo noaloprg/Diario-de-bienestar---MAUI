@@ -1,19 +1,25 @@
-﻿namespace Diario_bienestar
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace Diario_bienestar
 {
     public partial class MainPage : ContentPage
     {
         private static string claveNombreUsuario = "nombreUsuario";
+
         public MainPage()
         {
             InitializeComponent();
-            Preferences.Clear();
+            //Preferences.Clear();
+
+            //PRUEBAS
+            //BorrarFichero();
 
         }
         protected override async void OnAppearing()
         {
             base.OnAppearing();
             await Task.Delay(500);
-            PedirNombre();
+            await PedirNombre();
 
         }
         private void Personalizar()
@@ -37,13 +43,22 @@
                     await DisplayAlert("Error", "Debe introducir un nombre válido", "Volver");
                     await PedirNombre();
                 }
-                else
-                {
-                    //guardarlo
-                    Preferences.Set(claveNombreUsuario, nombre);
-                    Personalizar();
-                }
+
+            }
+            else
+            {
+                //si tiene ya  nombre que lo ponga
+                Personalizar();
             }
         }
+
+        /*PRUEBAS borrar cada que se inicie la app, para no acumular
+         * no deberia borrarlo, deberia almacenarlo todo aun que se cierre, si fuese real
+         */
+        //private static void BorrarFichero()
+        //{
+        //    if (File.Exists(nombreFicheroCompleto)) File.Delete(nombreFicheroCompleto);
+
+        //}
     }
 }

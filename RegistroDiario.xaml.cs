@@ -1,4 +1,5 @@
 using Diario_bienestar.Respositories;
+using Diario_bienestar.Servicios;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -11,12 +12,12 @@ public partial class RegistroDiario : ContentPage
 
     private static string nombreFichero = "registros.json";
 
-    private static RegistroRepository _repository;
+    private static string nombreFicheroCompleto = Path.Combine(rutaDir, nombreFichero);
+
     public RegistroDiario()
     {
         InitializeComponent();
 
-        Inicializar();
         Listeners();
     }
 
@@ -37,11 +38,10 @@ public partial class RegistroDiario : ContentPage
 
     private async void OnGuardarRegistroClick(object sender, EventArgs e)
     {
-
         //cada que se guarda un registro se añade al repositorio y se añade al fichero
-        if (_repository.Add(CrearRegistro()))
+        if (App.repo.Add(CrearRegistro()))
         {
-            string json = Serializar();
+            string json = JsonRegistrosService.Serializar(App.repo.GetAll().ToList());
             //[chema] guardar en Preferences
             Preferences.Set("listaRegistros", json);
 
@@ -51,7 +51,7 @@ public partial class RegistroDiario : ContentPage
              */
 
             //PRUEBAS
-            string jsonContenido = File.ReadAllText(Path.Combine(rutaDir, nombreFichero));
+            string jsonContenido = File.ReadAllText(Path.Combine(nombreFicheroCompleto));
             await DisplayAlert("Comprobar", $"{jsonContenido}", "volver");
         }
         else
@@ -63,37 +63,11 @@ public partial class RegistroDiario : ContentPage
     private Registro CrearRegistro()
     {
         DateTime fecha = dpFecha.Date;
-        string sentimientos = edPensamientos.Text;
+        string sentimientos = edPensamientos.Text.ToLower();
         double nvActFisica = slActividad.Value;
         int nvEnergia = Convert.ToInt32(lblNivelEnergia.Text);
 
         return new Registro(fecha, sentimientos, nvActFisica, nvEnergia);
-    }
-
-
-    //serializar la lista del repositorio para guardarlo en Ficheros
-    //[chema] guardar el string json en Preferences
-    private static String Serializar()
-    {
-        string json = "[]";
-        if (Directory.Exists(rutaDir))
-        {
-            json = JsonSerializer.Serialize(_repository.GetAll(), Opciones());
-            //append a lo ya existente
-            File.WriteAllText(Path.Combine(rutaDir, nombreFichero), json);
-        }
-        return json;
-    }
-    //opciones json
-    private static JsonSerializerOptions Opciones()
-    {
-        var opc = new JsonSerializerOptions
-        {
-            WriteIndented = true,
-            PropertyNameCaseInsensitive = true,
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-        };
-        return opc;
     }
 
     protected override void OnAppearing()
@@ -107,18 +81,8 @@ public partial class RegistroDiario : ContentPage
         dpFecha.Date = DateTime.Now;
         edPensamientos.Text = string.Empty;
         slActividad.Value = 0;
-        lblNivelEnergia.Text = "0";
+        lblNivelEnergia.Text = "1";
     }
 
-    private static void Inicializar()
-    {
-        _repository = new RegistroRepository();
-
-        //PRUEBAS borrar cada que se inicie la app, para no acumular
-        if (File.Exists(Path.Combine(rutaDir, nombreFichero)))
-        {
-            File.Delete(Path.Combine(rutaDir, nombreFichero));
-        }
-    }
-
+   
 }

@@ -20,5 +20,14 @@
         ContentTemplate="{DataTemplate local:RegistroDiario}"
         Route="Registro" />
 
+    <ShellContent
+        Title="Resumen semanal"
+        ContentTemplate="{DataTemplate local:ResumenSemanal}"
+        Route="resumenSemanal"/>
+
+    <ShellContent
+        Title="Lista de registros"
+        ContentTemplate="{x:DataTemplate local:ListaRegistros}"
+        Route="listaRegistros"/>
 
 </Shell>
