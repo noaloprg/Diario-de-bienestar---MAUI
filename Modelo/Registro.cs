@@ -10,7 +10,7 @@ namespace Diario_bienestar.Respositories
     {
         public DateTime fecha { get; set; }
         public string sentimientos { get; set; }
-        public double nivelActividadFidisca { get; set; }
+        public double nivelActividadFisica { get; set; }
         public int nivelEnergia { get; set; }
 
         public Registro() { }
@@ -19,7 +19,7 @@ namespace Diario_bienestar.Respositories
         {
             this.fecha = fecha;
             this.sentimientos = sentimientos;
-            this.nivelActividadFidisca = nivelActividadFidisca;
+            this.nivelActividadFisica = nivelActividadFidisca;
             this.nivelEnergia = nivelEnergia;
         }
 
@@ -32,6 +32,11 @@ namespace Diario_bienestar.Respositories
         public override int GetHashCode()
         {
             return HashCode.Combine(fecha);
+        }
+
+        public override string ToString()
+        {
+            return $"{fecha}, {nivelActividadFisica}, {nivelEnergia}";
         }
     }
 }

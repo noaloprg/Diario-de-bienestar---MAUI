@@ -41,18 +41,13 @@ public partial class RegistroDiario : ContentPage
         //cada que se guarda un registro se añade al repositorio y se añade al fichero
         if (App.repo.Add(CrearRegistro()))
         {
-            string json = JsonRegistrosService.Serializar(App.repo.GetAll().ToList());
-            //[chema] guardar en Preferences
-            Preferences.Set("listaRegistros", json);
-
-            /*
-             * CORRECTO
-             * await DisplayAlert("Correcto", "Registro diario guardado", "Volver");
-             */
-
+                       
+            //CORRECTO
+            await DisplayAlert("Correcto", "Registro diario guardado", "Volver");
+            
             //PRUEBAS
-            string jsonContenido = File.ReadAllText(Path.Combine(nombreFicheroCompleto));
-            await DisplayAlert("Comprobar", $"{jsonContenido}", "volver");
+            //string jsonContenido = File.ReadAllText(Path.Combine(nombreFicheroCompleto));
+            //await DisplayAlert("Comprobar", $"{jsonContenido}", "volver");
         }
         else
             await DisplayAlert("Error", $"No se puedo guardar el registro," +
@@ -64,7 +59,7 @@ public partial class RegistroDiario : ContentPage
     {
         DateTime fecha = dpFecha.Date;
         string sentimientos = edPensamientos.Text.ToLower();
-        double nvActFisica = slActividad.Value;
+        double nvActFisica = Math.Round(slActividad.Value *10,2);
         int nvEnergia = Convert.ToInt32(lblNivelEnergia.Text);
 
         return new Registro(fecha, sentimientos, nvActFisica, nvEnergia);

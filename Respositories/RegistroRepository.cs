@@ -1,6 +1,7 @@
 ﻿using Diario_bienestar.Servicios;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace Diario_bienestar.Respositories
 {
     public class RegistroRepository
     {
-        private static List<Registro> listaRegistros = new List<Registro>();
+        private static ObservableCollection<Registro> listaRegistros = new ObservableCollection<Registro>();
 
         public RegistroRepository()
         {
@@ -23,18 +24,28 @@ namespace Diario_bienestar.Respositories
             {
                 listaRegistros.Add(reg);
                 esCorrecto = true;
+                JsonRegistrosService.Serializar(listaRegistros);
             }
             else esCorrecto = false;
 
             return esCorrecto;
         }
 
-        public bool Delete(int id)
+        public bool Delete(Registro reg)
         {
-            throw new NotImplementedException();
+            bool esEliminado;
+            if (listaRegistros.Contains(reg))
+            {
+                listaRegistros.Remove(reg);
+                esEliminado = true;
+                JsonRegistrosService.Serializar(listaRegistros);
+            }
+            else esEliminado = false;
+
+            return esEliminado;
         }
 
-        public IEnumerable<Registro> GetAll()
+        public ObservableCollection<Registro> GetAll()
         {
             return listaRegistros;
         }
@@ -43,7 +54,7 @@ namespace Diario_bienestar.Respositories
         {
             if (listaPasada.Count > 0)
             {
-                listaRegistros = listaPasada.ToList();
+                listaRegistros = new ObservableCollection<Registro>(listaPasada);
                 return true;
             }
             else return false;

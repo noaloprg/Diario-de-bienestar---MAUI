@@ -1,6 +1,7 @@
 ﻿using Diario_bienestar.Respositories;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -22,8 +23,12 @@ namespace Diario_bienestar.Servicios
             List<Registro> listaJson = new List<Registro>();
 
             if (File.Exists(nombreFicheroCompleto))
+
             {
                 string json = File.ReadAllText(nombreFicheroCompleto);
+               
+                //[chema] guardar en Preferences
+                Preferences.Set("listaRegistros", json);
 
                 if (!string.IsNullOrWhiteSpace(json))
                 {
@@ -34,7 +39,7 @@ namespace Diario_bienestar.Servicios
         }
 
         //almacena una lista de registros en un fichero
-        public static String Serializar(List<Registro> listaGuardar)
+        public static String Serializar(ObservableCollection<Registro> listaGuardar)
         {
             string json = "[]";
             if (Directory.Exists(rutaDir))

@@ -41,6 +41,14 @@
 
             </Style>
 
+            <!--Label contenido resumen semanal-->
+            <Style TargetType="Label" x:Key="labelListarRegistros">
+                <Setter Property="TextColor" Value="{StaticResource Marron}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+               
+            </Style>
+
             <!--Border-->
             <Style TargetType="Border">
                 <Setter Property="Stroke" Value="{StaticResource Marron}"/>
@@ -87,7 +95,13 @@
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="{StaticResource Azul}"/>
                 <Setter Property="FontFamily" Value="dyslexic"/>
-                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+            
+            <!--horizontalStackLayout de la lista de registros-->
+            <Style TargetType="HorizontalStackLayout" x:Key="horizontalListaReg">
+                <Setter Property="Margin" Value="15,60,0,0"/>
+                <Setter Property="Spacing" Value="10"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

@@ -48,7 +48,7 @@
 
         <!--boton guardar-->
         <Border
-            WidthRequest="179" StrokeShape="RoundRectangle 30"
+            WidthRequest="250" StrokeShape="RoundRectangle 30"
              HorizontalOptions="End"
             BackgroundColor="{StaticResource RosaPalo}" Stroke="{StaticResource RosaPalo}"
             >

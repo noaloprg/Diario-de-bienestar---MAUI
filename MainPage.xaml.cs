@@ -6,6 +6,11 @@ namespace Diario_bienestar
     {
         private static string claveNombreUsuario = "nombreUsuario";
 
+        private static string rutaDir = FileSystem.AppDataDirectory;
+
+        private static string nombreFichero = "registros.json";
+
+        private static string nombreFicheroCompleto = Path.Combine(rutaDir, nombreFichero);
         public MainPage()
         {
             InitializeComponent();
@@ -55,10 +60,10 @@ namespace Diario_bienestar
         /*PRUEBAS borrar cada que se inicie la app, para no acumular
          * no deberia borrarlo, deberia almacenarlo todo aun que se cierre, si fuese real
          */
-        //private static void BorrarFichero()
-        //{
-        //    if (File.Exists(nombreFicheroCompleto)) File.Delete(nombreFicheroCompleto);
+        private static void BorrarFichero()
+        {
+            if (File.Exists(nombreFicheroCompleto)) File.Delete(nombreFicheroCompleto);
 
-        //}
+        }
     }
 }

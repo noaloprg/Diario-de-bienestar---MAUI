@@ -23,8 +23,8 @@ public partial class ResumenSemanal : ContentPage
     public ResumenSemanal()
     {
         InitializeComponent();
-        PonerFechas();
-        AsignrResultados();
+        //PonerFechas();
+        //AsignrResultados();
     }
     protected override void OnAppearing()
     {
@@ -68,12 +68,12 @@ public partial class ResumenSemanal : ContentPage
         {
             foreach (var registro in filtradosSemanal)
             {
-                totalActividad += registro.nivelActividadFidisca;
+                totalActividad += registro.nivelActividadFisica;
                 totalEnergia += registro.nivelEnergia;
             }
 
             //hacemos media solo con la cantidad que hay, por si no etsan rellenos los 7 dias 
-            var promedioActividad = totalActividad / filtradosSemanal.Count * 10;
+            var promedioActividad = totalActividad / filtradosSemanal.Count;
             var promedioEnergia = totalEnergia / filtradosSemanal.Count;
 
             CambiarColores(promedioActividad, promedioEnergia);

@@ -5,13 +5,54 @@
              Title="Lista de Registros"
              BackgroundColor="{StaticResource CremaSuave}">
 
-    <CollectionView>
+    <CollectionView x:Name="cvRegistros"
+                    Margin="50,50,50,50">
         <CollectionView.ItemsLayout>
-            <LinearItemsLayout Orientation="Horizontal"/>
+            <LinearItemsLayout Orientation="Vertical"   />
 
         </CollectionView.ItemsLayout>
         <CollectionView.ItemTemplate>
             <DataTemplate>
+                <Grid ColumnDefinitions="auto,auto,350,auto,auto"
+                      ColumnSpacing="38">
+                    <!--boton-->
+                    <Button x:Name="btnEliminar" Text="Eliminar" Grid.Row="0"
+                            WidthRequest="120" Margin="0,60,0,0" 
+                            Clicked="OnBotonClicked" CommandParameter="{Binding}"
+                            BackgroundColor="{StaticResource Rojo}" TextColor="{StaticResource RosaPalo}"/>
+
+                    <!--fecha-->
+                    <HorizontalStackLayout Grid.Column="1"
+                                           Style="{StaticResource horizontalListaReg}">
+                        <Label Text="Fecha: "/>
+                        <Label Text="{Binding fecha, StringFormat='{0:dd/MM/yyyy}'}"
+                               Style="{StaticResource labelListarRegistros}"/>
+                    </HorizontalStackLayout>
+
+                    <!--sentimientos-->
+                    <VerticalStackLayout Grid.Column="2"
+                                           Style="{StaticResource horizontalListaReg}">
+                        <Label Text="Anotacion: "/>
+                        <Label Text="{Binding sentimientos}"
+                               Style="{StaticResource labelListarRegistros}"/>
+                    </VerticalStackLayout>
+
+                    <!--actividad fisica-->
+                    <HorizontalStackLayout Grid.Column="3"
+                                           Style="{StaticResource horizontalListaReg}">
+                        <Label Text="Actividad fisica: "/>
+                        <Label Text="{Binding nivelActividadFisica, StringFormat='{0.00}'}"
+                               Style="{StaticResource labelListarRegistros}"/>
+                    </HorizontalStackLayout>
+
+                    <!--nivel energia-->
+                    <HorizontalStackLayout Grid.Column="4"
+                                           Style="{StaticResource horizontalListaReg}">
+                        <Label Text="Nivel energía: "/>
+                        <Label Text="{Binding nivelEnergia}"
+                               Style="{StaticResource labelListarRegistros}"/>
+                    </HorizontalStackLayout>
+                </Grid>
 
             </DataTemplate>
         </CollectionView.ItemTemplate>
